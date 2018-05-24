@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 
+// Moves all listed windows to specific position and monitor
 public static class DisplayFusionFunction
 {
 	public static void Run()
