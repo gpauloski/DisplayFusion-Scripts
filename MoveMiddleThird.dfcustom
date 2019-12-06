@@ -1,0 +1,20 @@
+﻿{
+	"name": "MoveMiddleThird",
+	"launchApplicationPath": "",
+	"launchApplicationParams": "",
+	"exclusiveAction": 0,
+	"windowMoveType": 9,
+	"moveMonitorID": 1,
+	"windowSizeTypeH": 2,
+	"windowSizeTypeValueH": 1148,
+	"windowSizeTypeV": 2,
+	"windowSizeTypeValueV": 1400,
+	"windowScreenMoveType": 0,
+	"monitorProfileID": "00000000-0000-0000-0000-000000000000",
+	"wallpaperProfileID": "00000000-0000-0000-0000-000000000000",
+	"desktopIconProfileID": "00000000-0000-0000-0000-000000000000",
+	"windowPositionProfileID": "00000000-0000-0000-0000-000000000000",
+	"windowTransparencyPercent": 100,
+	"moveLocationX": 0,
+	"moveLocationY": 0
+}
