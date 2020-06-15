@@ -6,4 +6,5 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ^Numpad4::Send {Media_Prev}
 ^Numpad5::Send {Media_Play_Pause}
 ^Numpad6::Send {Media_Next}
+
 return
