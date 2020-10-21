@@ -1,0 +1,9 @@
+#!/bin/bash
+
+alias cds='cd $HOME'
+alias count='find . -type f | wc -l'
+alias cpv='rsync -ah --info=progress2'  # Copy w/ progress bar
+
+alias longhorn='ssh $USER@longhorn.tacc.utexas.edu'
+alias theta='ssh $USER@theta.alcf.anl.gov'
+

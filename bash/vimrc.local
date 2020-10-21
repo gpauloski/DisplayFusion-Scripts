@@ -1,0 +1,83 @@
+"Source: https://gist.github.com/vlasenkov/276eaec6804ee441a95832febc5a3df6"
+
+set encoding=utf-8
+
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'davidhalter/jedi-vim'
+
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+syntax on
+
+let $VIRTUAL_ENV = $CONDA_PREFIX
+
+autocmd FileType python setlocal completeopt-=preview
+let g:jedi#popup_on_dot = 1
+let g:jedi#show_call_signatures = 1
+
+set hidden
+set incsearch
+set hlsearch
+
+set wildmenu
+set wildmode=longest,list
+set wildignore+=*.a,*.o,*.so,*.pyc
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+set wildignore+=.DS_Store,.git
+set wildignore+=*~,*.swp
+
+set nu     " line numbers
+set cc=80  " ruler
+
+highlight Pmenu ctermbg=gray guibg=gray
+highlight LineNr term=bold cterm=NONE ctermfg=darkgrey ctermbg=NONE
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+
+au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 tw=0 fo-=t expandtab autoindent fileformat=unix
+
+" Indent Python in the Google way.
+setlocal indentexpr=GetGooglePythonIndent(v:lnum)
+
+let s:maxoff = 50 " maximum number of lines to look backwards.
+
+function GetGooglePythonIndent(lnum)
+  " Indent inside parens.
+  " Align with the open paren unless it is at the end of the line.
+  " E.g.
+  "   open_paren_not_at_EOL(100,
+  "                         (200,
+  "                          300),
+  "                         400)
+  "   open_paren_at_EOL(
+  "       100, 200, 300, 400)
+  call cursor(a:lnum, 1)
+  let [par_line, par_col] = searchpairpos('(\|{\|\[', '', ')\|}\|\]', 'bW',
+        \ "line('.') < " . (a:lnum - s:maxoff) . " ? dummy :"
+        \ . " synIDattr(synID(line('.'), col('.'), 1), 'name')"
+        \ . " =~ '\\(Comment\\|String\\)$'")
+  if par_line > 0
+    call cursor(par_line, 1)
+    if par_col != col("$") - 1
+      return par_col
+    endif
+  endif
+
+  " Delegate the rest to the original function.
+  return GetPythonIndent(a:lnum)
+
+endfunction
