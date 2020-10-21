@@ -1,0 +1,22 @@
+{
+	"auto_complete": true,
+	"auto_complete_commit_on_tab": true,
+	"auto_complete_with_fields": true,
+	"bold_folder_labels": false,
+	"color_scheme": "Packages/Agila Theme/Agila Oceanic Next.tmTheme",
+	"detect_indentation": true,
+	"font_face": "Menlo",
+	"font_size": 14,
+	"highlight_line": true,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"remember_open_files": false,
+	"theme": "ayu-dark.sublime-theme",
+	"translate_tabs_to_spaces": false,
+	"trim_trailing_white_space_on_save": true
+}
