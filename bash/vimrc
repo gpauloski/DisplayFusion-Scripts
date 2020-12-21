@@ -58,7 +58,7 @@ let g:lightline = {
 
 "Make background transparent
 "hi Normal guibg=NONE ctermbg=NONE
-
+highlight Comment cterm=italic
 
 set tabstop=4
 

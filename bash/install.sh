@@ -4,6 +4,8 @@
 # BASH
 #
 # Append "source ~/.bash_aliases" to your ~/.bashrc
+# NOTE: if your bashrc modifies the command line further (e.g. for conda env)
+#       you may need to move the source line earlier in the file.
 #
 
 touch -a ~/.bashrc
