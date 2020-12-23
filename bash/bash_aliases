@@ -1,19 +1,23 @@
 #!/bin/bash
 
+export LS_COLORS=$LS_COLORS:'ow=1;34:'
+
 # GENERAL
-alias cds='cd $HOME'
+alias cdh='cd $HOME'
 alias count='find . -type f | wc -l'
 alias cpv='rsync -ah --info=progress2'  # Copy w/ progress bar
 
 # SSH Shortcuts
-alias longhorn='ssh $USER@longhorn.tacc.utexas.edu'
-alias theta='ssh $USER@theta.alcf.anl.gov'
+alias longhorn='ssh -L 6006:localhost:6006 -L 8888:localhost:8888 $USER@longhorn.tacc.utexas.edu'
+alias theta='ssh -L 6006:localhost:6006 -L 8888:localhost:8888 $USER@theta.alcf.anl.gov'
+alias dagobah='ssh $USER@192.168.50.234'
+alias naboo='ssh pi@192.168.50.84'
+alias uchicago='ssh ${USER}oski@linux.cs.uchicago.edu'
 
 # Theta Shortcuts
 alias gpulogin="ssh thetagpusn1"
-alias igpu="qsub -A SuperBERT --mode=interactive -q single-gpu "
-
-export PROJECTS=/lus/theta-fs0/projects
+alias igpu="qsub -A SuperBERT --mode=interactive -q single-gpu -e ~/cobalt/iqsub.error -o ~/cobalt/iqsub.output --debuglog ~/cobalt/iqsub.debug --attrs=enable_ssh=1 "
+alias cdp='cd /lus/theta-fs0/projects'
 
 export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
 

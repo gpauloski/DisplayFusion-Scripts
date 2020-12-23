@@ -29,11 +29,10 @@ endif
 
 colorscheme onedark
 
-set nocompatible
-if (has("termguicolors"))
-  set termguicolors
-endif
-
+"set nocompatible
+"if (has("termguicolors"))
+"  set termguicolors
+"endif
 
 set background=dark
 set hidden
@@ -61,6 +60,8 @@ let g:lightline = {
 highlight Comment cterm=italic
 
 set tabstop=4
+set shiftwidth=4
+set expandtab
 
 " Python Specific Settings
 au BufNewFile,BufRead *.py set softtabstop=4 shiftwidth=4 textwidth=79 tw=0 

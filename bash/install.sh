@@ -3,20 +3,17 @@
 #
 # BASH
 #
-# Append "source ~/.bash_aliases" to your ~/.bashrc
-# NOTE: if your bashrc modifies the command line further (e.g. for conda env)
-#       you may need to move the source line earlier in the file.
+# Links ./bash_aliases to ~/.bash_aliases
+# NOTE: most ~/.bashrc already source ~/.bash_aliases but you might need
+#       to add it manually. If you activate conda in your ~/.bashrc,
+#       source ~/.bash_aliases before activating conda
 #
 
 touch -a ~/.bashrc
 ln -s $PWD/bash_aliases ~/.bash_aliases
-echo "source ~/.bash_aliases" >> ~/.bashrc
 
 #
 # VIMRC
-#
-# Note: to use the Plugin themes, run :PluginInstall then first time
-# you run Vim.
 #
 
 if [ -f ~/.vim/vimrc ]; then
