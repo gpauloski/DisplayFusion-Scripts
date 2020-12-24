@@ -10,6 +10,7 @@ call plug#begin(expand('~/.vim/plugged'))
 Plug 'itchyny/lightline.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'joshdick/onedark.vim'
+Plug 'ervandew/supertab'
 call plug#end()
 
 syntax on
@@ -29,10 +30,10 @@ endif
 
 colorscheme onedark
 
-set nocompatible
-if (has("termguicolors"))
-  set termguicolors
-endif
+"set nocompatible
+"if (has("termguicolors"))
+"  set termguicolors
+"endif
 
 set background=dark
 set hidden
@@ -54,6 +55,10 @@ let g:nord_italic_comments=1
 let g:lightline = {
       \ 'colorscheme': 'onedark',
       \ }
+
+"OSX italic support workaround
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
 
 "Make background transparent
 "hi Normal guibg=NONE ctermbg=NONE
