@@ -12,6 +12,8 @@ alias cdh='cd $HOME'
 alias count='find . -type f | wc -l'
 alias cpv='rsync -ah --info=progress2'  # Copy w/ progress bar
 
+git config --global core.editor "vim"
+
 # SSH Shortcuts
 SSH_USER=$USER
 alias longhorn='ssh -L 6006:localhost:6006 -L 8888:localhost:8888 $SSH_USER@longhorn.tacc.utexas.edu'
