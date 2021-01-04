@@ -11,6 +11,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'joshdick/onedark.vim'
 Plug 'ervandew/supertab'
+Plug 'Yggdroot/indentLine'
+Plug 'godlygeek/tabular'
+Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
 syntax on
@@ -56,6 +59,20 @@ let g:lightline = {
       \ 'colorscheme': 'onedark',
       \ }
 
+" Use theme for indent line
+let g:indentLine_setColors = 0
+let g:indentLine_char = '▏'
+" Use :IndentLinesToggle to enable
+let g:indentLine_enabled = 0
+
+" Use :IndentGuidesEnable
+let g:indent_guides_enable_on_vim_startup = 0
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd  ctermbg=DarkGrey
+hi IndentGuidesEven ctermbg=DarkGrey
+
 "OSX italic support workaround
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
@@ -69,6 +86,6 @@ set shiftwidth=4
 set expandtab
 
 " Python Specific Settings
-au BufNewFile,BufRead *.py set softtabstop=4 shiftwidth=4 textwidth=79 tw=0 
+au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 tw=0 
     \ fo-=t expandtab autoindent fileformat=unix
 
